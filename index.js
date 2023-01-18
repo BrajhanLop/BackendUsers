@@ -2,11 +2,13 @@
 const express = require('express');
 const { dbConnection } = require('./database/config');
 const { routesUser } = require('./routes/authusuarios.routes');
+const cors = require('cors');
 require('dotenv').config();
 
 //!02. inicializamos
 const app = express();
 
+app.use(cors());
 // base de datos
 dbConnection();
 
