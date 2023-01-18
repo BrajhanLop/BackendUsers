@@ -3,6 +3,23 @@ const Usuario = require('../models/usuario.model')
 const bcrypt = require('bcryptjs');
 const { generarJWT } = require('../helpers/jwt');
 
+
+const allUsuarios = async (req, res) => {
+try {
+    
+    const usuarios = await Usuario.find({})
+    
+    res.status(200).json({
+        ok: true,
+        data: usuarios
+    })
+
+} catch (error) {
+    console.log(error);
+}
+}
+
+
 const crearUsuario = async (req, res) => {
 
     const { email, password } = req.body;
@@ -92,4 +109,6 @@ const logout = (req, res) => {
     })
 }
 
-module.exports = { crearUsuario, login, logout }
+
+
+module.exports = { crearUsuario, login, logout, allUsuarios }

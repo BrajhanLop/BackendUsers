@@ -2,8 +2,8 @@ const {Schema, model} = require('mongoose')
 
 const UsuarioSchema = Schema({
 
-    name: {
-        type: String,
+    dni: {
+        type: Number,
         require: true
     },
     email: {

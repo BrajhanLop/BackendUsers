@@ -16,7 +16,7 @@ next();
 }
 
 const crearUsuarioParams = [
-    check('name', 'el nombre es requerido').not().isEmpty(),
+    check('dni', 'el dni es requerido').not().isEmpty(),
     check('email', 'el email no debe ser vacio').isEmail(),
     check('password', 'debe tener minimo 6 caracteres').isLength({min: 6})
 ]
