@@ -7,7 +7,7 @@ const { generarJWT } = require('../helpers/jwt');
 const allUsuarios = async (req, res) => {
 try {
     
-    const usuarios = await Usuario.find({})
+    const usuarios = await Usuario.find({status:'active'})
     
     res.status(200).json({
         ok: true,
