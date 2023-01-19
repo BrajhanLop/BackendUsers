@@ -14,6 +14,14 @@ const UsuarioSchema = Schema({
     password:{
         type: String,
         require: true
+    },
+    role: {
+        type: String,
+        default: 'normal'
+    },
+    status: {
+        type: String,
+        default: 'active'
     }
 })
 

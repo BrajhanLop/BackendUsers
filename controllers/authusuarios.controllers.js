@@ -62,6 +62,31 @@ const crearUsuario = async (req, res) => {
 
 }
 
+const actualizarUsuario = async(req, res) => {
+const {id} = req.params;
+
+const userbuscado = await Usuario.findByIdAndUpdate({_id: id}, req.body)
+
+res.status(201).json(
+    {
+        ok: true,
+        msg: 'usuario actualizado'
+    }
+)
+
+}
+
+const eliminarUsuario = async(req, res) => {
+    const {id} = req.params;
+    const userbuscado = await Usuario.findByIdAndUpdate({_id: id}, {status:'deleted'})
+    res.status(201).json(
+        {
+            ok: true,
+            msg: 'usuario eliminado correctamente'
+        }
+    )
+}
+
 const login = async (req, res) => {
 
     const { email, password } = req.body;
@@ -111,4 +136,4 @@ const logout = (req, res) => {
 
 
 
-module.exports = { crearUsuario, login, logout, allUsuarios }
+module.exports = { crearUsuario, login, logout, allUsuarios, actualizarUsuario,eliminarUsuario  }
